@@ -18,6 +18,24 @@ void generate_random_matrix(int rows, int cols, int *matrix) {
 void multiply_matrices(int rows1, int cols1, int *matrix1,
                        int rows2, int cols2, int *matrix2,
                        int *result) {
+    // Check dimension compatibility
+    if (cols1 != rows2 || matrix1 == NULL || matrix2 == NULL || result == NULL) {
+        return;
+    }
+
+    int rows_result = rows1;
+    int cols_result = cols2;
+
+    for (int i = 0; i < rows_result; i++) {
+        for (int j = 0; j < cols_result; j++) {
+            int sum = 0;
+            for (int k = 0; k < cols1; k++) {
+                // matrix1[i][k] * matrix2[k][j]
+                sum += matrix1[i * cols1 + k] * matrix2[k * cols2 + j];
+            }
+            result[i * cols_result + j] = sum;
+        }
+    }
    
 }
 
