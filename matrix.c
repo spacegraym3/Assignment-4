@@ -3,14 +3,16 @@
 #include <time.h>
 #include <string.h>
 
+// TODO: Check that matrix has been allocated correctly
+// Two dimentional array represented as one
 void generate_random_matrix(int rows, int cols, int *matrix) {
     if (matrix == NULL || rows <= 0 || cols <= 0) {
         return;  // invalid input
     }
 
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            matrix[i * cols + j] = rand();
+    for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < cols; c++) {
+            matrix[r * cols + c] = rand();
         }
     }
 }
@@ -50,7 +52,35 @@ void display_matrix(int rows, int cols, int *matrix) {
 
 float do_job(int rows1, int cols1, int cols2, int forever) {
 
-   
+    struct timespec t0, t1;
+
+    timespec_get(&t0, TIME_UTC); 
+    do {
+        int* matrix1 = malloc(sizeof(int) * rows1 * cols1);
+        generate_random_matrix(rows1, cols1, matrix1);
+
+        int* matrix2 = malloc(sizeof(int) * rows1 * cols2);
+        generate_random_matrix(rows1, cols2, matrix2);
+
+        int* result = malloc(sizeof(int) * rows1 * cols2);
+
+        multiply_matrices(
+            rows1, cols1, matrix1, 
+            rows1, cols2, matrix2,
+            result);
+
+        //display_matrix(rows1, cols1, result);
+    } while (forever);
+
+    timespec_get(&t1, TIME_UTC);  // C11 feature
+
+    // nano seconds elapsed converted to fractional seconds
+    float dns = (float)(t1.tv_nsec - t0.tv_nsec) / 1000000000;
+    // seconds elapsed
+    float ds = (float)(t1.tv_sec - t0.tv_sec);
+
+    float total_time = dns+ds;
+    return total_time;
 }
 
 

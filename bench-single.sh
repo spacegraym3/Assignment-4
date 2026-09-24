@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 echo $(date)
 echo "starting matrix multiply"
 
