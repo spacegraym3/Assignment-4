@@ -75,12 +75,8 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < idx; i++) {
         
         /* Print integers without decimal point when possible */
-        
-        if (numbers[i] == (long)numbers[i]) {
-            printf("%ld", (long)numbers[i]);
-        } else {
-            printf("%g", (double)numbers[i]);
-        }
+        printf("%ld", (long)numbers[i]);
+
         if (i < idx - 1) {
             printf(",");
         }
@@ -88,6 +84,8 @@ int main(int argc, char *argv[]) {
     printf("\n");
 
     // 100,200,400
+    // FUCKING STUPID
+    // Parse the inputs from the user of jobs to run in the format 100,200,400 meaning matrix multiply a 100x100 matrices, 200x200 matrices, 400x400 matrices.
     
 
     return 0;

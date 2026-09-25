@@ -51,7 +51,6 @@ void display_matrix(int rows, int cols, int *matrix) {
 }
 
 float do_job(int rows1, int cols1, int cols2, int forever) {
-
     struct timespec t0, t1;
 
     do {
