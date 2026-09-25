@@ -11,7 +11,7 @@
 
 /* Comparison function for qsort */
 int compare(const void *a, const void *b) {
-    double diff = *(const double *)a - *(const double *)b;
+    int diff = *(const int *)a - *(const int *)b;
     if (diff < 0) return -1;
     if (diff > 0) return 1;
     return 0;
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     }
 
     /* Allocate array for the numbers */
-    double *numbers = malloc(count * sizeof(double));
+    int *numbers = malloc(count * sizeof(int));
     if (numbers == NULL) {
         fprintf(stderr, "Memory allocation failed\n");
         return 1;
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 
     if (isFifo) {
         /* Sort the numbers */
-        qsort(numbers, idx, sizeof(double), compare);
+        qsort(numbers, idx, sizeof(int), compare);
     }
 
     /* Print the sorted result for debugging */
