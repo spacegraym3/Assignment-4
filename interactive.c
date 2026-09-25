@@ -86,14 +86,16 @@ int main(int argc, char *argv[]) {
 
     // Run jobs in the current ordering
 
-/*
+
     printf("IDX: %i", idx);
     if (isFifo) {
-        FIFO((int*)numbers, idx);
+        return FIFO(numbers, idx);
     } else {
-        SJF((int*)numbers, idx);
+        return SJF(numbers, idx);
     }
-*/
+
+    /*
+    
     
     float totalTime = 0;
     for (int i = 0; i < idx; i++) {
@@ -105,6 +107,7 @@ int main(int argc, char *argv[]) {
     }
     
     printf("Average time: %f\n", (float)(totalTime/idx));
+    */
 
     return 0;
 }
