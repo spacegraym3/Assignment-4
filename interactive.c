@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
 
     if (isFifo) {
         /* Sort the numbers */
-        qsort(numbers, idx, sizeof(double), compare);
+        qsort(numbers, idx, sizeof(int), compare);
     }
 
     /* Print the sorted result for debugging */
