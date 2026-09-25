@@ -36,7 +36,7 @@ float SJF(int* jobs, int size) {
 
     memcpy(sorted, jobs, size * sizeof(int));
 
-    // Sort by burst time (ascending) – simple bubble sort is fine here
+    // Sort by burst time (ascending) – simple bubble sort 
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
             if (sorted[j] > sorted[j + 1]) {

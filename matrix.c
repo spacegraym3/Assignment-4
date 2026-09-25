@@ -6,6 +6,7 @@
 // TODO: Check that matrix has been allocated correctly
 // Two dimentional array represented as one
 void generate_random_matrix(int rows, int cols, int *matrix) {
+
     if (matrix == NULL || rows <= 0 || cols <= 0) {
         return;  // invalid input
     }
@@ -38,7 +39,6 @@ void multiply_matrices(int rows1, int cols1, int *matrix1,
             result[i * cols_result + j] = sum;
         }
     }
-   
 }
 
 void display_matrix(int rows, int cols, int *matrix) {
@@ -56,10 +56,14 @@ float do_job(int rows1, int cols1, int cols2, int forever) {
 
     do {
         int* matrix1 = malloc(sizeof(int) * rows1 * cols1);
+        printf("Generating Matrices...");
         generate_random_matrix(rows1, cols1, matrix1);
+        printf("Matrix 1 done\n");
+
 
         int* matrix2 = malloc(sizeof(int) * rows1 * cols2);
         generate_random_matrix(rows1, cols2, matrix2);
+        printf("Matrix 2 done\n");
 
         int* result = malloc(sizeof(int) * rows1 * cols2);
 
