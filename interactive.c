@@ -65,10 +65,9 @@ int main(int argc, char *argv[]) {
         token = strtok(NULL, ",");
     }
 
-
     if (isFifo) {
         /* Sort the numbers */
-        qsort(numbers, idx, sizeof(int), compare);
+        qsort(numbers, idx, sizeof(double), compare);
     }
 
     /* Print the sorted result for debugging */
@@ -87,6 +86,14 @@ int main(int argc, char *argv[]) {
 
     // Run jobs in the current ordering
 
+
+    printf("IDX: %i", idx);
+    if (isFifo) {
+        FIFO((int*)numbers, idx);
+    } else {
+        SJF((int*)numbers, idx);
+    }
+    /*
     float totalTime = 0;
     for (int i = 0; i < idx; i++) {
         int number = (int)numbers[i];
@@ -97,6 +104,7 @@ int main(int argc, char *argv[]) {
     }
     
     printf("Average time: %f\n", (float)(totalTime/idx));
+    */
 
     return 0;
 }
