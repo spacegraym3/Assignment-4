@@ -54,7 +54,6 @@ float do_job(int rows1, int cols1, int cols2, int forever) {
 
     struct timespec t0, t1;
 
-    timespec_get(&t0, TIME_UTC); 
     do {
         int* matrix1 = malloc(sizeof(int) * rows1 * cols1);
         generate_random_matrix(rows1, cols1, matrix1);
@@ -64,15 +63,19 @@ float do_job(int rows1, int cols1, int cols2, int forever) {
 
         int* result = malloc(sizeof(int) * rows1 * cols2);
 
+        timespec_get(&t0, TIME_UTC); 
         multiply_matrices(
             rows1, cols1, matrix1, 
             rows1, cols2, matrix2,
             result);
 
+        timespec_get(&t1, TIME_UTC);  // C11 feature
         //display_matrix(rows1, cols1, result);
+        free(matrix1);
+        free(matrix2);
+        free(result);
     } while (forever);
 
-    timespec_get(&t1, TIME_UTC);  // C11 feature
 
     // nano seconds elapsed converted to fractional seconds
     float dns = (float)(t1.tv_nsec - t0.tv_nsec) / 1000000000;
