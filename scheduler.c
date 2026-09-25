@@ -13,7 +13,6 @@ float FIFO(int* jobs, int size) {
     for (int i = 0; i < size; i++) {
         int number = (int)jobs[i];
         
-        printf("FUCK: %d", number);
         float elapsed = do_job(number, number, number, 0);
         totalTime += elapsed;
         printf("%dx%d matrices: %.6f seconds\n", number, number, elapsed);
