@@ -3,11 +3,11 @@
 echo $(date)
 echo "starting matrix multiply"
 
-mkdir -p data/bench-nice-$2
+mkdir -p data/bench-nice
 
-for i in $(eval echo {1..${1}})
+for i in $(seq 100 100 1000)
 do
-    /usr/bin/time -f "CPU: %P\n" -o data/bench-nice-$2/mm-${i}-cpu.out nice -n 10 ./bench $2 $2 $2 0 > data/bench-nice-$2/mm-${i}.out& 
+    /usr/bin/time -f "CPU: %P\n" -o data/bench-nice/mm-${i}-cpu.out nice -n 10 ./bench ${i} ${i} ${i} 0 > data/bench-nice/mm-${i}.out 
     pids[${i}]=$!
     echo $(date)
 done

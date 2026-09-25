@@ -1,1 +1,5 @@
-(1) Non answer
+(1) The execution time for multiple of the same jobs took a lot less than a single job execution.  It was considerably less which was surprising.
+(2) I can't tell what the dotted line means in the plot (there is no key or explanation).  Both lines (dotted and solid) seem to end up in the same place.  Looks like they qre equivalent.
+(3) Nice compared to multi? I guess nice needs to be a modification of multi.  Gotta make the change.  Wish the instructions were more specific.  I tried "nice" as a modified vesion of bench-multi.sh.  The nice version looked like a single invokatoon while the multi showed many executions.  Not sure what I did wrong here.
+
+
