@@ -82,23 +82,21 @@ int main(int argc, char *argv[]) {
         }
     }
     printf("\n");
-/*
 
-    for (int i = 0; i < idx; i++) {
-
-        
-        // Print integers without decimal point when possible 
-        printf("%ld", (long)numbers[i]);
-
-        if (i < idx - 1) {
-            printf(",");
-        }
-    }
-    */
-    // 100,200,400
-    // FUCKING STUPID
     // Parse the inputs from the user of jobs to run in the format 100,200,400 meaning matrix multiply a 100x100 matrices, 200x200 matrices, 400x400 matrices.
+
+    // Run jobs in the current ordering
+
+    float totalTime = 0;
+    for (int i = 0; i < idx; i++) {
+        int number = (int)numbers[i];
+        
+        float elapsed = do_job(number, number, number, 0);
+        totalTime += elapsed;
+        printf("%dx%d matrices: %.6f seconds\n", number, number, elapsed);
+    }
     
+    printf("Average time: %f\n", (float)(totalTime/idx));
 
     return 0;
 }
