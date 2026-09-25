@@ -71,18 +71,30 @@ int main(int argc, char *argv[]) {
         qsort(numbers, idx, sizeof(double), compare);
     }
 
-    /* Print the sorted result */
+    /* Print the sorted result for debugging */
     for (int i = 0; i < idx; i++) {
         
         /* Print integers without decimal point when possible */
-        printf("%ld", (long)numbers[i]);
+        printf("%i", (int)numbers[i]);
 
         if (i < idx - 1) {
             printf(",");
         }
     }
     printf("\n");
+/*
 
+    for (int i = 0; i < idx; i++) {
+
+        
+        // Print integers without decimal point when possible 
+        printf("%ld", (long)numbers[i]);
+
+        if (i < idx - 1) {
+            printf(",");
+        }
+    }
+    */
     // 100,200,400
     // FUCKING STUPID
     // Parse the inputs from the user of jobs to run in the format 100,200,400 meaning matrix multiply a 100x100 matrices, 200x200 matrices, 400x400 matrices.
