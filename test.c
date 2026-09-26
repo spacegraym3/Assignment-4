@@ -115,8 +115,8 @@ int test_SJF() {
     int jobs1[] = {300,300,300,600,100};
     int jobs2[] = {100,100,100,600,300};
 
-    float rsp = FIFO(jobs1,5);
-    float rsp2 = FIFO(jobs2,5);
+    float rsp = SJF(jobs1,5);
+    float rsp2 = SJF(jobs2,5);
 
     if(rsp <= rsp2) {
         printf("Second job list should have shorter response time.\n");
