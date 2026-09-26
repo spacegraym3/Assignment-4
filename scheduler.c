@@ -23,6 +23,8 @@ float FIFO(int* jobs, int size) {
 
 // Shortest job first
 float SJF(int* jobs, int size) {
+    return FIFO(jobs, size);
+    /*
     if (size <= 0) return 0.0f;
 
     float totalTime = 0;
@@ -35,4 +37,5 @@ float SJF(int* jobs, int size) {
     }
     printf("Average time: %f\n", (float)(totalTime/size));
     return totalTime;
+    */
 }
