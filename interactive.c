@@ -9,14 +9,6 @@
 #include <string.h>
 #include <ctype.h>
 
-/* Comparison function for qsort */
-int compare(const void *a, const void *b) {
-    int diff = *(const int *)a - *(const int *)b;
-    if (diff < 0) return -1;
-    if (diff > 0) return 1;
-    return 0;
-}
-
 int main(int argc, char *argv[]) {
     if (argc != 3) {
         printf("Usage: %s <FIFO/SJF> <job_sizes_comma_separated> \n", argv[0]);
@@ -65,22 +57,6 @@ int main(int argc, char *argv[]) {
         token = strtok(NULL, ",");
     }
 
-    if (isFifo) {
-        /* Sort the numbers */
-        qsort(numbers, idx, sizeof(int), compare);
-    }
-
-    /* Print the sorted result for debugging */
-    for (int i = 0; i < idx; i++) {
-        
-        /* Print integers without decimal point when possible */
-        printf("%i", (int)numbers[i]);
-
-        if (i < idx - 1) {
-            printf(",");
-        }
-    }
-    printf("\n");
 
     // Parse the inputs from the user of jobs to run in the format 100,200,400 meaning matrix multiply a 100x100 matrices, 200x200 matrices, 400x400 matrices.
 
